@@ -9,3 +9,4 @@ Review research:
 Kilian Vos, Kristen D. Splinter, Mitchell D. Harley, Joshua A. Simmons, Ian L. Turner. CoastSat: A Google Earth Engine-enabled Python toolkit to extract shorelines from publicly available satellite imagery, Environmental Modeling & Software, Volume 122, 2019, 104528, ISSN 1364-8152, https://doi.org/10.1016/j.envsoft.2019.104528.
 
 The software application refers to a sandy beach, with various cases being validated. Future projects it is expected to implement this code initially focused on coasts and expand it to rivers.
+https://github.com/krishnapatil343/Krishna-Patil/issues 
