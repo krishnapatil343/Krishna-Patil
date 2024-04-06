@@ -12,7 +12,7 @@ The Water detection algorithm is optimised for sandy soil Aqua lines. It combine
 
 The toolbox has the following functionalities:
 1. easy retrieval of satellite imagery spanning the user-defined region of interest and time period from Google Earth Engine, including state-of-the-art pre-processing steps (re-projecting the different bands, pansharpening, advanced cloud masking).
-2. automated extraction of shorelines from all the selected images using a sub-pixel resolution technique and options for quality-control.
+2. automated extraction of riverlines from all the selected images using a sub-pixel resolution technique and options for quality-control.
 ### Table of Contents
 
 - [Installation](#installation)
@@ -26,7 +26,7 @@ The toolbox has the following functionalities:
 
 To run the toolbox you first need to install the required Python packages in an environment. To do this we will use **Anaconda**, which can be downloaded freely [here](https://www.anaconda.com/download/). If you are a more advanced user and have **Mamba** installed, use Mamba as it will install everything faster and without problems (highly recommended if you know about python environments).
 
-Once you have it installed on your PC, open the Anaconda prompt (in Mac and Linux, open a terminal window) and use the `cd` command (change directory) to go the folder where you have downloaded this repository (e.g., `cd C:\Users\kilian\Documents\Github\CoastSat`).
+Once you have it installed on your PC, open the Anaconda prompt (in Mac and Linux, open a terminal window) and use the `cd` command (change directory) to go the folder where you have downloaded this repository. 
 
 Create a new environment named `coastsat` with all the required packages by entering these commands in succession:
 
@@ -91,7 +91,7 @@ The screenshot below shows an example of inputs that will retrieve all the image
 
 <img width="1119" alt="Screenshot 2024-04-06 at 10 11 02" src="https://github.com/krishnapatil343/Krishna-Patil/assets/121950565/c13a97f9-dfb4-4f89-92ac-c386b00e002d">
 
-:warning: The area of the polygon should not exceed 100 km2, so for very long beaches split it into multiple smaller polygons.
+:warning: The area of the polygon should not exceed 100 km2, so for very long river split it into multiple smaller polygons.
 
 ### 2.2 Riverline detection<a name="detection"></a>
 
