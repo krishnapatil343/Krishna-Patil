@@ -69,7 +69,7 @@ jupyter notebook
 
 A web browser window will open. Point to the directory where you downloaded this repository and click on `waterdetection.ipynb`. A Jupyter Notebook combines formatted text and code. To run the code, place your cursor inside one of the code sections and click on the `run cell` button (or press `Shift` + `Enter`) and progress forward.
 
-![image](https://user-images.githubusercontent.com/7217258/165960239-e8870f7e-0dab-416e-bbdd-089b136b7d20.png)
+<img width="1190" alt="Screenshot 2024-04-06 at 10 04 06" src="https://github.com/krishnapatil343/Krishna-Patil/assets/121950565/951678c3-88dc-4a56-b8fa-5937d8a4b5c8">
 
 The following sections show an example of how to run the full water detection workflow at Huallaga-River (Peru).
 
@@ -87,7 +87,7 @@ The call `metadata = SDS_download.retrieve_images(inputs)` will launch the retri
 
 The screenshot below shows an example of inputs that will retrieve all the images of Huallaga-River (Peru) acquired by Sentinel-2.
 
-![doc1](https://user-images.githubusercontent.com/7217258/166197244-9f41de17-f387-40a6-945e-8a78b581c4b1.png)
+<img width="1119" alt="Screenshot 2024-04-06 at 10 11 02" src="https://github.com/krishnapatil343/Krishna-Patil/assets/121950565/c13a97f9-dfb4-4f89-92ac-c386b00e002d">
 
 :warning: The area of the polygon should not exceed 100 km2, so for very long beaches split it into multiple smaller polygons.
 
@@ -125,7 +125,7 @@ settings['max_dist_ref'] = 100 # max distance (in meters) allowed from the refer
 ```
 This function allows the user to click points along the shoreline on cloud-free satellite images, as shown in the animation below.
 
-![ref_shoreline](https://user-images.githubusercontent.com/7217258/70408922-063c6e00-1a9e-11ea-8775-fc62e9855774.gif)
+![ScreenRecording2024-04-06at10 20 26-ezgif com-video-to-gif-converter](https://github.com/krishnapatil343/Krishna-Patil/assets/121950565/242d6170-4a3a-4262-b29a-31b6f40122cc)
 
 The maximum distance (in metres) allowed from the reference shoreline is defined by the parameter `max_dist_ref`. This parameter is set to a default value of 100 m. If you think that 100 m buffer from the reference shoreline will not capture the shoreline variability at your site, increase the value of this parameter. This may be the case for large nourishments or eroding/accreting coastlines.
 
@@ -136,20 +136,11 @@ Once all the settings have been defined, the batch riverline detection can be la
 output = SDS_shoreline.extract_shorelines(metadata, settings)
 ```
 When `check_detection` is set to `True`, a figure like the one below appears and asks the user to manually accept/reject each detection by pressing **on the keyboard** the `right arrow` (⇨) to `keep` the riverline or `left arrow` (⇦) to `skip` the mapped shoreline. The user can break the loop at any time by pressing `escape` (nothing will be saved though).
-
-![map_shorelines](https://user-images.githubusercontent.com/7217258/60766769-fafda480-a0f1-11e9-8f91-419d848ff98d.gif)
-
 When `adjust_detection` is set to `True`, a figure like the one below appears and the user can adjust the position of the riverline by clicking on the histogram of MNDWI pixel intensities. Once the threshold has been adjusted, press `Enter` and then accept/reject the image with the keyboard arrows.
-
-![Alt text](https://github.com/kvos/CoastSat/blob/master/doc/adjust_shorelines.gif)
-
+(https://github.com/krishnapatil343/Krishna-Patil/assets/121950565/7edac453-ce24-4b5f-9341-5bcc66a192af)
 Once all the riverline have been mapped, the output is available in two different formats (saved under */filepath/data/SITENAME*):
 - `SITENAME_output.pkl`: contains a list with the shoreline coordinates, the exact timestamp at which the image was captured (UTC time), the geometric accuracy and the cloud cover of each individual image. This list can be manipulated with Python, a snippet of code to plot the results is provided in the example script.
 - `SITENAME_output.geojson`: this output can be visualised in a GIS software (e.g., QGIS, ArcGIS).
 
-The figure below shows how the satellite-derived shorelines can be opened in a GIS software (QGIS) using the `.geojson` output. Note that the coordinates in the `.geojson` file are in the spatial reference system defined by the `output_epsg`.
-
-<p align="center">
-  <img width="500" height="300" src="https://user-images.githubusercontent.com/7217258/49361401-15bd0480-f730-11e8-88a8-a127f87ca64a.jpeg">
-</p>
-
+The figure below shows how the satellite-derived riverline can be opened in a GIS software (QGIS) using the `.geojson` output. Note that the coordinates in the `.geojson` file are in the spatial reference system defined by the `output_epsg`.
+<img width="1470" alt="Screenshot 2024-04-06 at 11 21 06" src="https://github.com/krishnapatil343/Krishna-Patil/assets/121950565/03d0b195-f378-4253-8e1e-70131ff895eb">
