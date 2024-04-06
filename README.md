@@ -3,7 +3,7 @@
 
 "Welcome to All! 🌊 We're dedicated to leveraging cutting-edge technology to detect water bodies using satellite imagery. Our focus is on environmental monitoring, disaster management, and sustainable resource utilization. Join us as we explore the beauty of Earth's landscapes and work towards a better, more water-conscious future.  
 
-![Huallaga_River](https://github.com/krishnapatil343/Krishna-Patil/assets/121950565/f8ff0650-a488-4c7b-a63e-f4eade2eca2d)
+![Huallaga_River](https://github.com/krishnapatil343/Krishna-Patil/assets/121950565/f8ff0650-a488-4c7b-a63e-f4eade2eca2d)](https://github.com/krishnapatil343/Krishna-Patil)
 ![WhatsApp Image 2024-04-05 at 12 35 03 PM](https://github.com/krishnapatil343/Krishna-Patil/assets/121950565/a7a48e44-8609-454d-b0f9-dc5473cca41a) 
 ### Project description
 
@@ -139,7 +139,9 @@ output = SDS_shoreline.extract_shorelines(metadata, settings)
 ```
 When `check_detection` is set to `True`, a figure like the one below appears and asks the user to manually accept/reject each detection by pressing **on the keyboard** the `right arrow` (⇨) to `keep` the riverline or `left arrow` (⇦) to `skip` the mapped shoreline. The user can break the loop at any time by pressing `escape` (nothing will be saved though).
 When `adjust_detection` is set to `True`, a figure like the one below appears and the user can adjust the position of the riverline by clicking on the histogram of MNDWI pixel intensities. Once the threshold has been adjusted, press `Enter` and then accept/reject the image with the keyboard arrows.
-(https://github.com/krishnapatil343/Krishna-Patil/assets/121950565/7edac453-ce24-4b5f-9341-5bcc66a192af)
+
+![Huallaga_River](https://github.com/krishnapatil343/Krishna-Patil/assets/121950565/f8ff0650-a488-4c7b-a63e-f4eade2eca2d)]
+
 Once all the riverline have been mapped, the output is available in two different formats (saved under */filepath/data/SITENAME*):
 - `SITENAME_output.pkl`: contains a list with the shoreline coordinates, the exact timestamp at which the image was captured (UTC time), the geometric accuracy and the cloud cover of each individual image. This list can be manipulated with Python, a snippet of code to plot the results is provided in the example script.
 - `SITENAME_output.geojson`: this output can be visualised in a GIS software (e.g., QGIS, ArcGIS).
