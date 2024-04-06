@@ -1,4 +1,6 @@
-# Water_Detection  :star: **If you like the repo put a star on it!** :star: 
+# Water_Detection  :
+**If you like the repo put a star on it!** :star: 
+
 "Welcome to All! 🌊 We're dedicated to leveraging cutting-edge technology to detect water bodies using satellite imagery. Our focus is on environmental monitoring, disaster management, and sustainable resource utilization. Join us as we explore the beauty of Earth's landscapes and work towards a better, more water-conscious future.  
 
 ![Huallaga_River](https://github.com/krishnapatil343/Krishna-Patil/assets/121950565/f8ff0650-a488-4c7b-a63e-f4eade2eca2d)
