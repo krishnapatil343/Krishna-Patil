@@ -1,4 +1,7 @@
-# Water_Detection  :star: **If you like the repo put a star on it!** :star: 
+# Water_Detection  : Testing of Coasat for river analysis
+**If you like the repo put a star on it!** :star: 
+
+
 "Welcome to All! 🌊 We're dedicated to leveraging cutting-edge technology to detect water bodies using satellite imagery. Our focus is on environmental monitoring, disaster management, and sustainable resource utilization. Join us as we explore the beauty of Earth's landscapes and work towards a better, more water-conscious future.  
 ![Huallaga_River](https://github.com/krishnapatil343/Krishna-Patil/assets/121950565/4687edf6-a31c-4839-8741-ddf7d69e2147)
 ![WhatsApp Image 2024-04-05 at 12 35 03 PM](https://github.com/krishnapatil343/Krishna-Patil/assets/121950565/3dc44dd1-3bc8-402f-8be2-985409a23725)
@@ -14,7 +17,7 @@ The toolbox has the following functionalities:
 - [Installation](#installation)
 - [Usage](#usage)
    - [Retrieval of the satellite images in GEE](#retrieval)
-   - [Shoreline detection](#detection) 
+   - [river line detection](#detection) 
   
 ## 1. Installation<a name="introduction"></a>
 
@@ -96,8 +99,8 @@ To map the riverline, the following user-defined settings are needed:
 - `dist_clouds`: buffer around cloud pixels where Riverline is not mapped (in metres)
 - `output_epsg`: epsg code defining the spatial reference system of the Riverline coordinates. It has to be a cartesian coordinate system (i.e. projected) and not a geographical coordinate system (in latitude and longitude angles). See http://spatialreference.org/ to find the EPSG number corresponding to your local coordinate system. If you do not use a local projection, your results may not be accurate.
 - `check_detection`: If set to `True,` the user can quality control each riverline detection interactively (recommended when mapping riverlines for the first time) and accept/reject each riverline.
-- `adjust_detection`: in case users want more control over the detected riverline, they can set this parameter to `True`, then they will be able to manually adjust the threshold used to map the riverline on each image.
-- `save_figure`: if set to `True` a figure of each mapped shoreline is saved under */filepath/sitename/jpg_files/detection*, even if the two previous parameters are set to `False`. Note that this may slow down the process.
+- `adjust_detection`: in case users want more control over the detected riverlines, they can set this parameter to `True`, then they will be able to manually adjust the threshold used to map the riverline on each image.
+- `save_figure`: if set to `True` a figure of each mapped river line is saved under */filepath/sitename/jpg_files/detection*, even if the two previous parameters are set to `False`. Note that this may slow down the process.
 
 There are additional parameters (`min_beach_size`, `min_length_sl`, `cloud_mask_issue`, `sand_color` and `pan_off`) that can be tuned to optimise the riverline detection (for Advanced users only). For the moment leave these parameters set to their default values, we will see later how they can be modified.
 
@@ -116,31 +119,32 @@ Once the images have been downloaded you can visualise them and create an MP4 an
 
 Before running the batch riverline detection, there is the option to manually digitize a reference riverline on one cloud-free image. This reference riverline helps to reject outliers and false detections when mapping riverlines as it only considers as valid riverlines the points that are within a defined distance from this reference riverlines (defined by `settings['max_dist_ref']`).
 
- The user can manually digitize one or several reference shorelines on one of the images by calling:
+ The user can manually digitize one or several reference river lines on one of the images by calling:
 ```
-settings['reference_shoreline'] = SDS_preprocess.get_reference_sl_manual(metadata, settings)
+settings['reference_riverline'] = SDS_preprocess.get_reference_sl_manual(metadata, settings)
 settings['max_dist_ref'] = 100 # max distance (in meters) allowed from the reference riverlines
 ```
 This function allows the user to click points along the River line on cloud-free satellite images, as shown in the animation below.
 
-![ScreenRecording2024-04-06at10 20 26-ezgif com-video-to-gif-converter](https://github.com/krishnapatil343/Krishna-Patil/assets/121950565/bc24c6d9-6168-44f3-930b-b520353753a3)
+![ScreenRecording2024-04-06at10 20 26-ezgif com-video-to-gif-converter](https://github.com/krishnapatil343/Krishna-Patil/assets/121950565/290eb552-ed19-456f-94e4-af3b4f77eeef)
 
-The maximum distance (in metres) allowed from the reference shoreline is defined by the parameter `max_dist_ref`. This parameter is set to a default value of 100 m. If you think that 100 m buffer from the reference shoreline will not capture the shoreline variability at your site, increase the value of this parameter. This may be the case for large nourishments or eroding/accreting coastlines.
 
-#### Batch riverlines detection
+The maximum distance (in metres) allowed from the reference riverline is defined by the parameter `max_dist_ref`. This parameter is set to a default value of 100 m. If you think that 100 m buffer from the reference riverline will not capture the riverline variability at your site, increase the value of this parameter. This may be the case for large nourishments or eroding/accreting coastlines.
+
+#### Batch river lines detection
 
 Once all the settings have been defined, the batch river lines detection can be launched by calling:
 ```
-output = SDS_shoreline.extract_shorelines(metadata, settings)
+output = SDS_riverline.extract_riverlines(metadata, settings)
 ```
-When `check_detection` is set to `True`, a figure like the one below appears and asks the user to manually accept/reject each detection by pressing **on the keyboard** the `right arrow` (⇨) to `keep` the riverline or `left arrow` (⇦) to `skip` the mapped shoreline. The user can break the loop at any time by pressing `escape` (nothing will be saved though).
+When `check_detection` is set to `True`, a figure like the one below appears and asks the user to manually accept/reject each detection by pressing **on the keyboard** the `right arrow` (⇨) to `keep` the riverline or `left arrow` (⇦) to `skip` the mapped riverline. The user can break the loop at any time by pressing `escape` (nothing will be saved though).
 
 ![Huallaga_River](https://github.com/krishnapatil343/Krishna-Patil/assets/121950565/6378e55d-91c4-40be-9592-715270491dfc)
 
 When `adjust_detection` is set to `True`, a figure like the one below appears and the user can adjust the position of the riverline by clicking on the histogram of MNDWI pixel intensities. Once the threshold has been adjusted, press `Enter` and then accept/reject the image with the keyboard arrows.
 
 Once all the riverline have been mapped, the output is available in two different formats (saved under */filepath/data/SITENAME*):
-- `SITENAME_output.pkl`: contains a list with the shoreline coordinates, the exact timestamp at which the image was captured (UTC time), the geometric accuracy and the cloud cover of each individual image. This list can be manipulated with Python, a snippet of code to plot the results is provided in the example script.
+- `SITENAME_output.pkl`: contains a list with the riverline coordinates, the exact timestamp at which the image was captured (UTC time), the geometric accuracy and the cloud cover of each individual image. This list can be manipulated with Python, a snippet of code to plot the results is provided in the example script.
 - `SITENAME_output.geojson`: this output can be visualised in a GIS software (e.g., QGIS, ArcGIS).
 
 The figure below shows how the satellite-derived river lines can be opened in a GIS software (QGIS) using the `.geojson` output. Note that the coordinates in the `.geojson` file are in the spatial reference system defined by the `output_epsg`.
